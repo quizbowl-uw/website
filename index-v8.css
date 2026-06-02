@@ -1,0 +1,265 @@
+body {
+  background: #eeeeee;
+  font-family: 'Arial', sans-serif;
+  font-size: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+header {
+  position: relative;
+  left: -10px;
+  margin-bottom: 1rem;
+  width: 99vw;
+  justify-content: space-between;
+  height: 10vh;
+  background-color: #4b2e83;
+}
+
+header.content-mobile {
+  justify-content: space-evenly;
+}
+
+header > img {
+  height: 100%;
+  width: auto;
+}
+
+footer {
+  padding-bottom: 10px;
+}
+
+nav {
+  position: relative;
+  left: -10px;
+  top: 0;
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #333;
+  width: 99vw;
+}
+
+nav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav a:hover:not(.active) {
+  background-color: #4b2e83;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+.era-blurb {
+  font-style: italic;
+}
+
+#read-list {
+  font-size: 1rem;
+  text-align: center;
+  font-style: Verdana;
+}
+
+button {
+  cursor: pointer;
+  display: block;
+  width: 300px;
+  height: 72px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #333;
+  letter-spacing: 2px;
+  position: relative;
+  transition: all 0.35s;
+}
+
+button span {
+  position: relative;
+  z-index: 2;
+}
+
+#interactive a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#archive:after {
+  background: black;
+}
+
+#database:after {
+  background: #3BB0C4;
+  color: black;
+}
+
+#podcasts:after {
+  background: #870707;
+}
+
+#megadocument:after {
+  background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%, rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%, rgba(28,127,238,1) 60%, rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%, rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%);
+}
+
+button:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #4b2e83;
+  transition: all 0.35s;
+}
+
+button:hover {
+  color: #FFF;
+}
+
+button:hover:after {
+  width: 100%;
+}
+
+header, .column, .row  {
+  display: flex;
+}
+
+#interactive, header {
+  align-items: center;
+}
+
+#interactive {
+  width: 30%;
+}
+
+.pre-clicked button {
+  border: 1px dashed black;
+}
+
+header, figure, h1 {
+  text-align: center;
+}
+
+.content-mobile h1 {
+  text-align: left;
+}
+
+header, .row {
+  flex-direction: row;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.two-column {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.two-column h2, .two-column h3 {
+  text-align: center;
+}
+
+#jump {
+  text-align: center;
+}
+
+figure img {
+  height: 211px;
+  width: auto;
+}
+
+.club-picture {
+  height: auto;
+  width: 500px;
+}
+
+iframe {
+  width: 500px;
+  height: 363px;
+  border: none;
+}
+
+h1 {
+  font-family: 'Times', serif;
+  font-size: 2em;
+  color: #e8e3d3;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+h2 {
+  font-family: 'Verdana', sans-serif;
+  font-size: 1.5em;
+}
+
+figure {
+  font-family: 'Helvetica', sans-serif;
+}
+
+#item-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+#item-holder a {
+  text-decoration: none;
+}
+
+#current-quarter {
+  font-style: normal;
+}
+
+#upcoming-events {
+  font-weight: bold;
+}
+
+#interactive ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.no-list-decor {
+  list-style-type: none;
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  margin: 10px;
+}
+
+.row {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.question-card {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  width: 50%;
+  padding: 1rem;
+  background-color: #e8e3d3;
+  border-radius: 2rem;
+}
+
+@media screen and (min-width: 481px) {
+  .content-desktop {display: auto !important;}
+  .content-mobile {display: none !important;}
+}
+
+@media screen and (max-width: 480px) {
+  .content-desktop {display: none !important;}
+  .content-mobile {display: auto !important;}
+}
