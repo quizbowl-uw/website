@@ -1,3 +1,5 @@
 .env
 .ssh
 .venv
+uwqb_website_key
+uwqb_website_key.pub
