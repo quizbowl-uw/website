@@ -1,3 +1,6 @@
 .env
 .ssh
 .venv
+*~
+*.sw?
+
