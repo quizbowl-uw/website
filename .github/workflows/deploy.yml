@@ -21,3 +21,20 @@ jobs:
           source: "."
           target: "/da00/d68/quizbowl/public_html/"
           rm: false
+
+      - name: Generate URLs for archiving
+        id: url-generate
+        run: |
+          echo "urls<<EOF" >> $GITHUB_OUTPUT
+          echo "https://students.washington.edu/quizbowl" >> $GITHUB_OUTPUT
+          find . -name "*.html" | sort | sed "s|^.|https://students.washington.edu/quizbowl|" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Archive site to Wayback Machine
+        uses: JamieMagee/wayback@v2
+        with:
+          url: ${{ steps.url-generate.outputs.urls }}
+          saveErrors: true
+          saveOutlinks: true
+          saveScreenshot: true
+          skipFirstArchive: true
