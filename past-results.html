@@ -41,8 +41,8 @@
 
   <h3 class="era-title" id="unnamed-era">Unnamed Era (202<i>?</i>-present)</h3>
   <figure class="content-desktop">
-    <img class="club-picture" src="img/2026quizbowl.jpeg">
-    <figcaption>Quizbowl at the 2026 Senior Sendoff</figcaption>
+    <img class="club-picture" id="club-picture-2026" src="img/2026quizbowl.jpeg" onclick="switchImage()">
+    <figcaption id="2026-sendoff-caption">Quizbowl at the 2026 Senior Sendoff</figcaption>
   </figure>
   <section class="era-blurb">
     <p><u>Club Leaders</u>: [???], Phoebe Chu, Anya Srinivasan</p>
@@ -335,5 +335,19 @@
   </section>
 
   <footer>For more results, search the tournament archive on <a href="https://hdwhite.org/qb/stats/">HD White</a> or check out <a href="https://www.naqt.com/stats/school/results.jsp?org_id=1011">our entry in the NAQT database</a>. You can also learn more about UW through our page on <a href="https://www.qbwiki.com/wiki/University_of_Washington">QBWiki</a>.</footer>
+
+  <script>
+    function switchImage() {
+      const img = document.getElementById("club-picture-2026");
+      const caption = document.getElementById("2026-sendoff-caption");
+      if (img.src.endsWith("img/2026quizbowl.jpeg")) {
+        img.src = "img/2026quizbowl-silly.jpeg";
+        caption.textContent = "Quizbowl at the 2026 Senior Sendoff!";
+      } else {
+        img.src = "img/2026quizbowl.jpeg";
+        caption.textContent = "Quizbowl at the 2026 Senior Sendoff";
+      }
+    }
+  </script>
 </body>
 </html>
