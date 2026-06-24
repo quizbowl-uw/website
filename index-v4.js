@@ -5,6 +5,8 @@
  * This is the JavaScript for the University of Washington Quizbowl Team website.
  * It provides support for random literature generation, a quizbowl demo, and a lot
  * more interesting things.
+ * 
+ * Last updated by Yaj Jhajhria on June 23, 2026.
  */
 
 "use strict";
@@ -40,13 +42,13 @@
    * then parses the text to send a random one of those works to the DOM
    */
   function processTable() {
-    fetch("https://quizbowl-short-generator.netlify.app/short_generator_weighted.csv")
+    fetch("short_generator_weighted.csv")
       .then(response => response.text())
-      .then(data => {
+      .then(async data => {
         let myResponse = data.toString();
         let myArray = csvToArray(myResponse);
         let randInt = Math.floor(Math.random() * myArray.length);
-        constructNode(myArray, randInt);
+        await constructNode(myArray, randInt);
       });
     changeCSS();
   }
@@ -68,7 +70,7 @@
    * author, url, type, and hits columns
    * @param {*} i requested row number of array (randomly generated)
    */
-  function constructNode(myArray, i) {
+  async function constructNode(myArray, i) {
     // creating node for link to work text
     let titleAnchor = document.createElement('a');
     titleAnchor.href = myArray[i].url;
@@ -87,9 +89,11 @@
     // creating node for link to QuizDB
     let query = myArray[i].title.replace(" ", "+");
     let quizAnchor = document.createElement('a');
-    let quizUrl = "https://aseemsdb.me/results?query=" + query + "&searchtype=1&dir=&sort=url&ascending=0";
+    let quizUrl = "https://www.qbreader.org/db/?queryString=" + query + "&categories=Literature";
     quizAnchor.href = quizUrl;
-    quizAnchor.textContent = "Question DB Link (" + myArray[i].hits + " hits)";
+    let hits = await getDBHits(myArray[i].title).catch(() => myArray[i].hits);
+    // let hits = myArray[i].hits;
+    quizAnchor.textContent = "QB Reader database link (" + hits + " hits)";
     let quizItem = document.createElement('li');
     quizItem.appendChild(quizAnchor);
 
@@ -113,6 +117,25 @@
       nodeDestination.appendChild(newItem);
     } else {
       nodeDestination.replaceChild(newItem, nodeDestination.childNodes[4]);
+    }
+  }
+
+  /**
+   * calls the qbreader api to get the number of hits for a title on the db.
+   * @param {*} 
+   */
+  async function getDBHits(query) {
+    try {
+      const baseUrl = "https://www.qbreader.org/api/query";
+      const params = new URLSearchParams({
+        queryString: query,
+        categories: ["Literature"],
+      });
+      const response = await fetch(`${baseUrl}?${params.toString()}`);
+      const data = await response.json();
+      return (data.tossups?.count || 0) + (data.bonuses?.count || 0);
+    } catch (error) {
+      console.error("Error getting number of qbreader hits. Defauting to data in CSV.");
     }
   }
 
