@@ -122,7 +122,7 @@
 
   /**
    * calls the qbreader api to get the number of hits for a title on the db.
-   * @param {*} 
+   * @param {*} query title of literary work to get qbreader hits for
    */
   async function getDBHits(query) {
     try {
