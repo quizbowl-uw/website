@@ -34,6 +34,7 @@ jobs:
 
       - name: Archive site to Wayback Machine
         uses: JamieMagee/wayback@v2
+        continue-on-error: true
         with:
           url: ${{ steps.url-generate.outputs.urls }}
           saveErrors: true
