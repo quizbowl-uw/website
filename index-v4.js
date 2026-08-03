@@ -42,7 +42,7 @@
    * then parses the text to send a random one of those works to the DOM
    */
   function processTable() {
-    fetch("short_generator_weighted.csv")
+    fetch("assets/short_generator_weighted.csv")
       .then(response => response.text())
       .then(async data => {
         let myResponse = data.toString();
