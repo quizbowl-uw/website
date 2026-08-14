@@ -20,7 +20,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
-          source: "."
+          source: "!**/.*/**,!**/.*,.htaccess,**/*"
           target: "/da00/d68/quizbowl/public_html/"
           rm: false
 
