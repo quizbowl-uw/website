@@ -1,4 +1,5 @@
 #!/bin/bash
+# Authored by Gavin Morrow in 2025.
 
 # Usage: ./replace_name.sh file dead_name new_name
 # Case Specific Gavin != gavin 
