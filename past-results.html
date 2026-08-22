@@ -41,7 +41,7 @@
 
   <h3 class="era-title" id="unnamed-era">Unnamed Era (202<i>?</i>-present)</h3>
   <figure class="content-desktop">
-    <img class="club-picture" id="club-picture-2026" src="img/2026quizbowl.jpeg" onclick="switchImage()">
+    <img class="club-picture" id="club-picture-2026" src="assets/img/2026quizbowl.jpeg" onclick="switchImage()">
     <figcaption id="2026-sendoff-caption">Quizbowl at the 2026 Senior Sendoff</figcaption>
   </figure>
   <section class="era-blurb">
@@ -340,11 +340,11 @@
     function switchImage() {
       const img = document.getElementById("club-picture-2026");
       const caption = document.getElementById("2026-sendoff-caption");
-      if (img.src.endsWith("img/2026quizbowl.jpeg")) {
-        img.src = "img/2026quizbowl-silly.jpeg";
+      if (img.src.endsWith("assets/img/2026quizbowl.jpeg")) {
+        img.src = "assets/img/2026quizbowl-silly.jpeg";
         caption.textContent = "Quizbowl at the 2026 Senior Sendoff!";
       } else {
-        img.src = "img/2026quizbowl.jpeg";
+        img.src = "assets/img/2026quizbowl.jpeg";
         caption.textContent = "Quizbowl at the 2026 Senior Sendoff";
       }
     }
