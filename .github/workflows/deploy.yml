@@ -20,8 +20,8 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
-          source: "!./.git/**,!./.github/**,!.gitignore,.htaccess,**/*"
-          target: "/dw00/d68/quizbowl/public_html/"
+          source: "!./.git/**,!./.github/**,!.gitignore,.htaccess,."
+          target: "/dw00/d68/quizbowl/"
           rm: false
 
       - name: Generate URLs for archiving
